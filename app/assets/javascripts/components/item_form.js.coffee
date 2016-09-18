@@ -1,4 +1,5 @@
 @ItemForm = React.createClass
+
   getInitialState: ->
     title: ''
     date: ''
@@ -17,7 +18,6 @@
       @props.handleNewItem data
       @setState @getInitialState()
     , 'JSON'
-
 
   render: ->
     React.DOM.form

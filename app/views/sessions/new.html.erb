@@ -1,0 +1,18 @@
+<body id="login-background">
+  <h1 class="login-head">Please login</h1>
+  <br>
+
+  <form id="new_user" action="<%= sessions_url %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+    <label class="login-field" for="user_email">Username</label>
+    <input type="text" name="user[username]" id="user_email" value="">
+
+    <label class="login-field" for="user_password">Password</label>
+    <input type="password" name="user[password]" id="user_password" value="">
+
+    <input class="sub-button" type="submit" value="submit">
+  </form>
+
+  <a href="/users/new" class="to-new-user">...or create a new account.</a>
+</div>

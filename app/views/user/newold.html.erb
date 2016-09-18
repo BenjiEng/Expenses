@@ -1,0 +1,16 @@
+<div id="new-user-background">
+<a href="/#"><span class="glyphicon glyphicon-home"></span></a>
+<h1 class="login-head">Create an Account</h1>
+
+<form id="new_user" action="<%= users_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label for="user_name" class="login-field">Name</label>
+  <input type="text" name="user[username]" id="user_name" value="">
+  <br>
+  <label for="user_password" class="login-field">Password</label>
+  <input type="password" name="user[password]" id="user_password" value="">
+  <input type="submit" value="submit" class="sub-button">
+</form>
+<a href="/session/new" class="to-new-user">...or login.</a>
+</div>
