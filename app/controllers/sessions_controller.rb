@@ -1,16 +1,13 @@
 class SessionsController < ApplicationController
-  before_action :require_signed_out!, only: [:new, :create]
+  before_action :require_signed_out!, only: [:create]
   before_action :require_signed_in!, only: [:destroy]
 
   def new
-    render "/sessions/new"
+    render "/session/new"
   end
 
   def create
-    @user = User.find_by_credentials(
-      params[:user][:name],
-      params[:user][:password]
-    )
+    @user = User.find_by_credentials(params[:user][:name],params[:user][:password])
 
     if @user
       sign_in(@user)
@@ -23,7 +20,7 @@ class SessionsController < ApplicationController
 
   def destroy
     sign_out
-    redirect_to("/items")
+    redirect_to "/session/new"
   end
 
 end
