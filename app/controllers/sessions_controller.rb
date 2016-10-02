@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       redirect_to("/items")
     else
       flash.now[:errors] = ["Invalid username or password ㅠ_ㅠ"]
-      render :new
+      render "session/new"
     end
   end
 
