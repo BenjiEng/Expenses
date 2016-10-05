@@ -2,7 +2,7 @@ this.ItemForm = React.createClass ({
 
   getInitialState: function() {
     return {
-      title: '',
+      title: 'Food',
       date: '',
       amount: ''
     };
@@ -24,10 +24,11 @@ this.ItemForm = React.createClass ({
 
   handleSubmit: function(e) {
     e.preventDefault();
+
     if (this.state.title === "Deposit") {
       this.state.amount *= -1;
     }
-    debugger
+
     return $.post('', {
       item: this.state
     }, (function(_this) {
@@ -61,11 +62,12 @@ this.ItemForm = React.createClass ({
           multiple: false,
           name: 'title',
           value: this.state.title,
+          defaultValue: 'Food',
           onChange: this.handleChange
         }, 'Select Type',
           React.DOM.option({
             value: 'Food',
-            name: 'food'
+            name: 'food',
           }, 'Food'),
           React.DOM.option({
             value: 'Medical',
@@ -75,6 +77,10 @@ this.ItemForm = React.createClass ({
             value: 'Transportation',
             name: 'Transportation'
           }, 'Transportation'),
+          React.DOM.option({
+            value: 'Withdrawal',
+            name: 'withdrawal'
+          }, 'Withdrawal'),
           React.DOM.option({
             value: 'Deposit',
             name: 'deposit'
