@@ -1,3 +1,28 @@
 <%# app/views/items/index.html.erb %>
 
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+Help
+</button>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+ <div class="modal-dialog" role="document">
+   <div class="modal-content">
+     <div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+       <h4 class="modal-title" id="myModalLabel">Welcome to Itemized!</h4>
+     </div>
+     <div class="modal-body">
+       <p>Itemized is a buget tracking application.</p>
+       <p>Credit indicates the amount that has been paid/deposited to your account.</p>
+       <p>Debit indicates the total amount you will need to pay off.</p>
+       <p>Balance shows the difference between your credit and debit.</p>
+       <p>The form under the header allows you to create a new itemized expense or credit.</p>
+     </div>
+     <div class="modal-footer">
+       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+     </div>
+   </div>
+ </div>
+</div>
+
  <%= react_component 'Items', { data: @items } %>

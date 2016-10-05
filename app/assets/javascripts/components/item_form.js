@@ -25,7 +25,7 @@ this.ItemForm = React.createClass ({
   handleSubmit: function(e) {
     e.preventDefault();
 
-    if (this.state.title === "Deposit") {
+    if (this.state.title !== "Deposit") {
       this.state.amount *= -1;
     }
 
@@ -60,6 +60,7 @@ this.ItemForm = React.createClass ({
      },
         React.DOM.select({
           multiple: false,
+          className: 'form-control',
           name: 'title',
           value: this.state.title,
           defaultValue: 'Food',
@@ -69,6 +70,10 @@ this.ItemForm = React.createClass ({
             value: 'Food',
             name: 'food',
           }, 'Food'),
+          React.DOM.option({
+            value: 'Rent/Lodging',
+            name: 'rent/lodging',
+          }, 'Rent/Lodging'),
           React.DOM.option({
             value: 'Medical',
             name: 'medical'
