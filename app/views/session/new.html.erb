@@ -19,11 +19,17 @@
           <input type="password" class="login__input pass" placeholder="Password" name="user[password]"/>
         </div>
         <button style="margin-bottom: 1rem;" type="submit" class="login__submit">Sign In</button>
-        <button style="margin: 0;" type="submit" class="login__submit">Sign as Guest</button>
+        <button style="margin: 0;" type="submit" class="login__submit" onclick="guestLogin();">Sign as Guest</button>
       </form>
       <p class="login__signup">Don't have an account? &nbsp;<a href="/users/new">Sign Up</a></p>
     </div>
   </div>
 </div>
-
+<script>
+  var guestLogin = function () {
+    $(".login__input.name").val("user");
+    $(".login__input.pass").val("password");
+    return false;
+  }
+</script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
