@@ -24,6 +24,10 @@ this.ItemForm = React.createClass ({
 
   handleSubmit: function(e) {
     e.preventDefault();
+    if (this.state.title === "Deposit") {
+      this.state.amount *= -1;
+    }
+    debugger
     return $.post('', {
       item: this.state
     }, (function(_this) {
@@ -53,14 +57,34 @@ this.ItemForm = React.createClass ({
      React.DOM.div({
       className: 'form-group'
      },
-        React.DOM.input({
-        type: 'text',
-        className: 'form-control',
-        placeholder: 'Expense Type',
-        name: 'title',
-        value: this.state.title,
-        onChange: this.handleChange
-    })),
+        React.DOM.select({
+          multiple: false,
+          name: 'title',
+          value: this.state.title,
+          onChange: this.handleChange
+        }, 'Select Type',
+          React.DOM.option({
+            value: 'Food',
+            name: 'food'
+          }, 'Food'),
+          React.DOM.option({
+            value: 'Medical',
+            name: 'medical'
+          }, 'Medical'),
+          React.DOM.option({
+            value: 'Transportation',
+            name: 'Transportation'
+          }, 'Transportation'),
+          React.DOM.option({
+            value: 'Deposit',
+            name: 'deposit'
+          }, 'Deposit'),
+          React.DOM.option({
+            value: 'Other',
+            name: 'other'
+          }, 'Other')
+      )
+    ),
     React.DOM.div({
       className: 'form-group'
     },
